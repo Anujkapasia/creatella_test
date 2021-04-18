@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './styles/app.scss'
 import {
     BrowserRouter as Router,
@@ -16,14 +16,16 @@ import Home from './elements/homeRoute'
 
 
 function App() {
+    const [searchVal , setSearchVal] = useState("")
+
     return (
         <Router>
         <div className="base" >
-            <Header />
+            <Header searchVal={searchVal} setSearchVal={setSearchVal} />
             <div className="home-wrapper" >
             <Switch>
                 <Route exact path="/">
-                    <Home />
+                    <Home searchVal={searchVal} />
                 </Route>
                 <Route exact path="/explore"  >
                     <span>This is explore tab</span>

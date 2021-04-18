@@ -28,14 +28,22 @@
         white-space: nowrap;
         font-weight: bold;
         margin:0 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 200ms;
+
+        &:hover{
+            background-color: #ddd;
+            color:#666;
+        }
 
     }
 
     .current-filter{
-        color:#000;
-        background-color: #ffff3b;
-        border-radius: 10px;
-
+        color:#000 !important;
+        background-color: #ffff3b !important;
+        
+        
     }
 
     &::-webkit-scrollbar {

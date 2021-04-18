@@ -5,8 +5,10 @@ import { AiFillEye } from 'react-icons/ai'
 
 
 
-function Home() {
+
+function Home(props) {
     const [productData , setData] = useState([])
+    const [currentFilter,setFilter] = useState("popular")
 
     useEffect(()=>{
         var request = new XMLHttpRequest();
@@ -28,14 +30,22 @@ function Home() {
     return (
         <div className="home-container" >
             <div className="filters-wrapper" >
-                <div className="current-filter" >Popular</div>
-                <div>Auction</div>
-                <div>Flat-rate</div>
-                <div>Scheduled</div>
+                <div onClick={()=>setFilter("popular")} className={currentFilter==="popular"?"current-filter":""} >Popular</div>
+                <div onClick={()=>setFilter("auction")} className={currentFilter==="auction"?"current-filter":""} >Auction</div>
+                <div onClick={()=>setFilter("flat-rate")} className={currentFilter==="flat-rate"?"current-filter":""} >Flat-rate</div>
+                <div onClick={()=>setFilter("scheduled")} className={currentFilter==="scheduled"?"current-filter":""} >Scheduled</div>
             </div>
             <div className="products-container" >
                 {
                     productData.map((product,index)=>{
+                        if(props.searchVal!==""){
+                            if(!product.name.toLowerCase().includes(props.searchVal)){
+                                return
+                            }
+                        }else if(!product.tags?.includes(currentFilter)){
+                            return
+                        }
+                        
                         return(
                             <Product
                             key={index}
