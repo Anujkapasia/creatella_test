@@ -1,0 +1,87 @@
+
+.nav-container{
+     background-color: #fff;
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+     width: 100%;
+    max-width: 1000px;
+    height: 70px;
+    margin-left:auto;
+    margin-right: auto;
+    padding:10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+
+    a{
+        margin:0 5px;
+        border-radius: 5px;
+        margin:5px;
+        display: grid;
+        place-items: center;
+        position: relative;
+        cursor: pointer;
+        &:hover{
+            background-color: #f2f2f2;
+        }
+    }
+
+    .nav-icons{
+        width: 30px;
+        height: 30px;
+        padding:15px;
+        box-sizing:initial;
+        color: inherit;
+        position: relative;
+        
+        
+    }
+
+    .home-after{
+        &::after{
+            color:#ffc42b !important;
+        }
+    }
+
+    .explore-after{
+        &::after{
+            color:#94bc98 !important;
+        }
+    }
+
+    .cart-after{
+        &::after{
+            color:#cd585b !important;
+        }
+    }
+
+    .chat-after{
+        &::after{
+            color:#68d4f2 !important;
+        }
+    }
+
+    .profile-after{
+        &::after{
+            color:#3f3f3f !important;
+        }
+    }
+
+    .active{
+        &::after{
+            content:".";
+            font-weight: bold;
+            font-size: 20px;
+            position: absolute;
+            color: inherit;
+            top:60%;
+            left:50%;
+            transform: translateX(-50%);
+        }
+    }
+
+
+}
